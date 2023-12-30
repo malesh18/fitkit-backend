@@ -11,9 +11,11 @@ app.use(bodyParser.json());
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 //const uri =
-  //"mongodb+srv://root:12345@malesh.jgchm3j.mongodb.net/?retryWrites=true&w=majority";
+//"mongodb+srv://root:12345@malesh.jgchm3j.mongodb.net/?retryWrites=true&w=majority";
 
-const uri = "mongodb://fitki-db:tK0vaMQjgNIBKs5bULcqR2A28bxc6sLtfTRPAjzHMCB74aCJcWxkZLElmgWrIVSUWDZLW2xo2938ACDbPxzqwA==@fitki-db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@fitki-db@"
+const uri =
+  process.env.MONGO_URI ||
+  "mongodb://fitki-db:tK0vaMQjgNIBKs5bULcqR2A28bxc6sLtfTRPAjzHMCB74aCJcWxkZLElmgWrIVSUWDZLW2xo2938ACDbPxzqwA==@fitki-db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@fitki-db@";
 
 const client = new MongoClient(uri, {
   serverApi: {
